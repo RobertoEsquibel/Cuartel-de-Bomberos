@@ -18,18 +18,7 @@ import java.sql.DriverManager;
 
 
 public class Conexion {
-    
-    private static final String URL = "jdbc:mariadb://localhost/";
-    private static final String DB = "bomberos";
-    private static final String USUARIO = "root";
-    private static String PASSWORD = "";
-    private static Connection connection;
-    
-    private Conexion(){}
-    public static Connection getConexion();
-    
-    
-   
+
         
     
         
