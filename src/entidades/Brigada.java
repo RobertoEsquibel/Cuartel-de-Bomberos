@@ -4,27 +4,31 @@ package entidades;
 
 public class Brigada {
     private int codBrigada;
-    private String nombre;
-    private String especialidades;
+    private String nombre_br;
+    private String especialidad;
     private boolean libre;
     private int nro_cuartel;
 
     public Brigada() {
     }
 
-    public Brigada(String nombre, String especialidades, boolean libre, int nro_cuartel) {
-        this.nombre = nombre;
-        this.especialidades = especialidades;
+    public Brigada(String nombre_br, String especialidad, boolean libre, int nro_cuartel) {
+        this.nombre_br = nombre_br;
+        this.especialidad = especialidad;
         this.libre = libre;
         this.nro_cuartel = nro_cuartel;
     }
 
-    public Brigada(int codBrigada, String nombre, String especialidades, boolean libre, int nro_cuartel) {
+    public Brigada(int codBrigada, String nombre_br, String especialidad, boolean libre, int nro_cuartel) {
         this.codBrigada = codBrigada;
-        this.nombre = nombre;
-        this.especialidades = especialidades;
+        this.nombre_br = nombre_br;
+        this.especialidad = especialidad;
         this.libre = libre;
         this.nro_cuartel = nro_cuartel;
+    }
+
+    public Brigada(String codBrigada, String text, String text0, boolean libre, String nro_cuartel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose 
     }
 
     public int getCodBrigada() {
@@ -35,23 +39,23 @@ public class Brigada {
         this.codBrigada = codBrigada;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_br() {
+        return nombre_br;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_br(String nombre_br) {
+        this.nombre_br = nombre_br;
     }
 
-    public String getEspecialidades() {
-        return especialidades;
+    public String getespecialidad() {
+        return especialidad;
     }
 
-    public void setEspecialidades(String especialidades) {
-        this.especialidades = especialidades;
+    public void setespecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
-    public boolean isLibre() {
+    public boolean getLibre() {
         return libre;
     }
 
@@ -69,7 +73,7 @@ public class Brigada {
 
     @Override
     public String toString() {
-        return "Brigada{" + "codBrigada=" + codBrigada + ", nombre=" + nombre + ", especialidades=" + especialidades + ", libre=" + libre + ", nro_cuartel=" + nro_cuartel + '}';
+        return "Brigada{" + "codBrigada=" + codBrigada + ", nombre_br=" + nombre_br + ", especialidad=" + especialidad + ", libre=" + libre + ", nro_cuartel=" + nro_cuartel + '}';
     }
     
     

@@ -1,15 +1,27 @@
-
 package entidades;
 
-
 public class Cuartel {
-  private int codCuartel;
-private String nombre_cuartel;
-private String direccion;
-private int coord_X;
-private int coord_Y;
-private int telefono;
-private String correo;
+
+    private int codCuartel;
+    private String nombre_cuartel;
+    private String direccion;
+    private int coord_X;
+    private int coord_Y;
+    private int telefono;
+    private String correo;
+    private int distancia;
+
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
+    }
+
+    public Cuartel(int distancia) {
+        this.distancia = distancia;
+    }
 
     public Cuartel() {
     }
@@ -31,6 +43,14 @@ private String correo;
         this.coord_Y = coord_Y;
         this.telefono = telefono;
         this.correo = correo;
+    }
+
+    public Cuartel(int codCuartel, String text, int direccion, int coord_X, int coord_Y, int telefono, String text0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Cuartel(String codCuartel, String text, String text0, String coord_X, String coord_Y, String telefono, String text1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getCodCuartel() {

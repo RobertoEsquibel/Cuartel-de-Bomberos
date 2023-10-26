@@ -7,14 +7,14 @@ public class Bombero {
     private int id_bombero;
     private int dni;
     private String nombre_ape;
-    private LocalDate fecha_nac;
+    private String fecha_nac;
     private int celular;
     private int codBrigada;
 
     public Bombero() {
     }
 
-    public Bombero(int dni, String nombre_ape, LocalDate fecha_nac, int celular, int codBrigada) {
+    public Bombero(int dni, String nombre_ape, String fecha_nac, int celular, int codBrigada) {
         this.dni = dni;
         this.nombre_ape = nombre_ape;
         this.fecha_nac = fecha_nac;
@@ -22,7 +22,7 @@ public class Bombero {
         this.codBrigada = codBrigada;
     }
 
-    public Bombero(int id_bombero, int dni, String nombre_ape, LocalDate fecha_nac, int celular, int codBrigada) {
+    public Bombero(int id_bombero, int dni, String nombre_ape, String fecha_nac, int celular, int codBrigada) {
         this.id_bombero = id_bombero;
         this.dni = dni;
         this.nombre_ape = nombre_ape;
@@ -55,11 +55,11 @@ public class Bombero {
         this.nombre_ape = nombre_ape;
     }
 
-    public LocalDate getFecha_nac() {
+    public String getFecha_nac() {
         return fecha_nac;
     }
 
-    public void setFecha_nac(LocalDate fecha_nac) {
+    public void setFecha_nac(String fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
 
