@@ -127,7 +127,7 @@ public class Admin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    login.Escritorio.removeAll();
+        login.Escritorio.removeAll();
         login.Escritorio.repaint();
         cuartel c = new cuartel();
         c.setVisible(true);
@@ -136,9 +136,7 @@ public class Admin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-
-        // TODO add your handling code here:
+        new login().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
