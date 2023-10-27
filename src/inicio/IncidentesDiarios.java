@@ -5,6 +5,8 @@
  */
 package inicio;
 
+import conexiondata.SiniestroData;
+
 /**
  *
  * @author ELIANA
@@ -47,6 +49,11 @@ public class IncidentesDiarios extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 170, -1));
 
         buscar.setText("BUSCAR");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 120, -1));
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,6 +70,13 @@ public class IncidentesDiarios extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+        SiniestroData sd = new SiniestroData();
+        jTabla.setModel(sd.SiniestrosDiarios());
+        
+    }//GEN-LAST:event_buscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
