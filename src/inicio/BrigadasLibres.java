@@ -3,6 +3,7 @@ package inicio;
 import conexiondata.BrigadaData;
 import conexiondata.Conexion;
 import entidades.Brigada;
+import static inicio.login.Escritorio;
 import java.awt.event.ItemEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +33,7 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -58,6 +60,13 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTabla);
 
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,6 +81,10 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSalir)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +95,8 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jBSalir))
         );
 
         pack();
@@ -111,6 +125,15 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Usuario us = new Usuario();
+        us.setVisible(true);
+        Escritorio.add(us);
+        Escritorio.moveToFront(us);
+    }//GEN-LAST:event_jBSalirActionPerformed
     public List Buscar(String nombre) {
 
         Brigada brigada = null;
@@ -145,6 +168,7 @@ public class BrigadasLibres extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBSalir;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

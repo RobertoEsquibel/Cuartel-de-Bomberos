@@ -3,6 +3,7 @@ package inicio;
 import conexiondata.Conexion;
 import entidades.Brigada;
 import entidades.Cuartel;
+import static inicio.login.Escritorio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,21 +16,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
-
 public class CuartelesCercanos extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
     private Connection con = null;
 
-    
     public CuartelesCercanos() {
 
         initComponents();
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,6 +42,7 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
         jtabla = new javax.swing.JTable();
         jListar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -59,20 +57,26 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Ingrese las coordenadas del siniestro o incidente");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
-        getContentPane().add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 68, -1));
+
+        jX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 68, -1));
 
         jLabel3.setText("Coordenada X");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         jLabel4.setText("Coordenada Y");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
 
         jY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jYActionPerformed(evt);
             }
         });
-        getContentPane().add(jY, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 68, 30));
+        getContentPane().add(jY, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 68, 30));
 
         jbuscar.setText("Buscar Cuarteles cercanos");
         jbuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +109,14 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
         jLabel5.setText("Presione el Boton 'Listar', para ver los Cuarteles");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 270, 20));
 
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,7 +132,7 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
             System.out.println(distancia);
             jtabla.setValueAt(distancia, i, 6);
         }
-          
+
         JOptionPane.showMessageDialog(null, "El Cuartel mas cercano es ");
     }//GEN-LAST:event_jbuscarActionPerformed
 
@@ -133,8 +145,22 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jYActionPerformed
 
+    private void jXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jXActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Usuario us = new Usuario();
+        us.setVisible(true);
+        Escritorio.add(us);
+        Escritorio.moveToFront(us);
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -171,7 +197,7 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
             objeto[5] = lista.get(i).getCoord_Y();
 
             modelo.addRow(objeto);
-           // Collections.sort( BuscarCuartel, Comparador.ordenarPorDistancia );
+            // Collections.sort( BuscarCuartel, Comparador.ordenarPorDistancia );
 
         }
 

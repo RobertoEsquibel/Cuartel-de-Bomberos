@@ -6,6 +6,7 @@
 package inicio;
 
 import conexiondata.SiniestroData;
+import static inicio.login.Escritorio;
 
 /**
  *
@@ -34,6 +35,7 @@ public class IncidentesDiarios extends javax.swing.JInternalFrame {
         buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -68,6 +70,14 @@ public class IncidentesDiarios extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 650, 90));
 
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -75,12 +85,22 @@ public class IncidentesDiarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         SiniestroData sd = new SiniestroData();
         jTabla.setModel(sd.SiniestrosDiarios());
-        
+
     }//GEN-LAST:event_buscarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Usuario us = new Usuario();
+        us.setVisible(true);
+        Escritorio.add(us);
+        Escritorio.moveToFront(us);
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

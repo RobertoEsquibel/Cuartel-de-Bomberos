@@ -155,7 +155,7 @@ public class Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBListarActionPerformed
 
     private void jBDiariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDiariosActionPerformed
-    login.Escritorio.removeAll();
+        login.Escritorio.removeAll();
         login.Escritorio.repaint();
         IncidentesDiarios id = new IncidentesDiarios();
         id.setVisible(true);
@@ -164,18 +164,18 @@ public class Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBDiariosActionPerformed
 
     private void jBCargarSiniestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCargarSiniestroActionPerformed
-         login.Escritorio.removeAll();
+        login.Escritorio.removeAll();
         login.Escritorio.repaint();
-      CargaSiniestro cs = new CargaSiniestro();
+        CargaSiniestro cs = new CargaSiniestro();
         cs.setVisible(true);
         login.Escritorio.add(cs);
         login.Escritorio.moveToFront(cs);
     }//GEN-LAST:event_jBCargarSiniestroActionPerformed
 
     private void jBConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultasActionPerformed
-           login.Escritorio.removeAll();
+        login.Escritorio.removeAll();
         login.Escritorio.repaint();
-      ConsultasVistas cv = new ConsultasVistas();
+        ConsultasVistas cv = new ConsultasVistas();
         cv.setVisible(true);
         login.Escritorio.add(cv);
         login.Escritorio.moveToFront(cv);

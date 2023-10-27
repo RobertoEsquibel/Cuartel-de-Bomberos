@@ -5,6 +5,7 @@ import conexiondata.BrigadaData;
 import conexiondata.Conexion;
 import entidades.Bombero;
 import entidades.Brigada;
+import static inicio.login.Escritorio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +41,7 @@ public class ConsultasVistas extends javax.swing.JInternalFrame {
         jCodBrigada = new javax.swing.JTextField();
         buscar = new javax.swing.JButton();
         jNro_cuartel = new javax.swing.JTextField();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -107,6 +109,14 @@ public class ConsultasVistas extends javax.swing.JInternalFrame {
         getContentPane().add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
         getContentPane().add(jNro_cuartel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 50, -1));
 
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,18 +136,28 @@ public class ConsultasVistas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCodBrigadaActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-      BomberoData b= new BomberoData();
-      b.listarBombero();
+        BomberoData b = new BomberoData();
+        b.listarBombero();
         LimpiarTabla();
         armarCabecera(jTabla1);
 
 
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Usuario us = new Usuario();
+        us.setVisible(true);
+        Escritorio.add(us);
+        Escritorio.moveToFront(us);
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
     private javax.swing.JButton buscar2;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JTextField jCodBrigada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -184,7 +204,6 @@ public class ConsultasVistas extends javax.swing.JInternalFrame {
         model.setRowCount(0);
 
     }
-
 
     public void armarCabecera2(JTable jtabla2) {
         int codCuartel = Integer.parseInt(jNro_cuartel.getText());

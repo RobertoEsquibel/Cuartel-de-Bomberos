@@ -7,6 +7,7 @@ package inicio;
 
 import conexiondata.SiniestroData;
 import entidades.Siniestro;
+import static inicio.login.Escritorio;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
@@ -49,6 +50,7 @@ public class CargaSiniestro extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jCPuntuacion = new javax.swing.JComboBox<>();
         agregar = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -69,8 +71,8 @@ public class CargaSiniestro extends javax.swing.JInternalFrame {
         getContentPane().add(jcombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, -1));
 
         jLabel3.setText("Inicio de siniestro o incidente");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-        getContentPane().add(jDCInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        getContentPane().add(jDCInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 150, -1));
 
         jLabel4.setText("Coordenada X de incidente");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, -1));
@@ -81,18 +83,29 @@ public class CargaSiniestro extends javax.swing.JInternalFrame {
         getContentPane().add(jY, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 70, -1));
 
         jLabel6.setText("Detalles:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-        getContentPane().add(jDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 320, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        jDetalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDetallesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 320, -1));
 
         jLabel7.setText("Fecha de resolucion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, -1));
-        getContentPane().add(jDCResolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 150, -1));
+        getContentPane().add(jDCResolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 270, 190, -1));
 
         jLabel8.setText("Puntuacion");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 60, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 80, -1));
 
         jCPuntuacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-        getContentPane().add(jCPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        jCPuntuacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCPuntuacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 70, -1));
 
         agregar.setText("CARGAR");
         agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,31 +113,57 @@ public class CargaSiniestro extends javax.swing.JInternalFrame {
                 agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 353, 140, 40));
+        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 140, 30));
+
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-      
+
         int X = Integer.parseInt(jX.getText());
         int Y = Integer.parseInt(jY.getText());
         LocalDate finicio;
         LocalDate fresol;
         finicio = jDCInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            fresol = jDCResolucion.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            
-            Siniestro ns= new Siniestro(jcombo.getSelectedItem().toString(), finicio , X, Y, jDetalles.getText(), fresol,jCPuntuacion.getSelectedIndex(),2);
-            
-            SiniestroData nsd= new SiniestroData();
-            nsd.CargarSiniestro(ns);
-            
-            
+        fresol = jDCResolucion.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        Siniestro ns = new Siniestro(jcombo.getSelectedItem().toString(), finicio, X, Y, jDetalles.getText(), fresol, jCPuntuacion.getSelectedIndex(), 2);
+
+        SiniestroData nsd = new SiniestroData();
+        nsd.CargarSiniestro(ns);
+
+
     }//GEN-LAST:event_agregarActionPerformed
+
+    private void jDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDetallesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDetallesActionPerformed
+
+    private void jCPuntuacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPuntuacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCPuntuacionActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Usuario us = new Usuario();
+        us.setVisible(true);
+        Escritorio.add(us);
+        Escritorio.moveToFront(us);
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JComboBox<String> jCPuntuacion;
     private com.toedter.calendar.JDateChooser jDCInicio;
     private com.toedter.calendar.JDateChooser jDCResolucion;
