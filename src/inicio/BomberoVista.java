@@ -39,7 +39,6 @@ public class BomberoVista extends javax.swing.JInternalFrame {
         fNacimiento = new com.toedter.calendar.JDateChooser();
         jBSalir = new javax.swing.JButton();
 
-        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -147,11 +146,11 @@ public class BomberoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jmodificarActionPerformed
 
     private void jtcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcelularActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jtcelularActionPerformed
 
     private void jtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcodigoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jtcodigoActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -162,7 +161,7 @@ public class BomberoVista extends javax.swing.JInternalFrame {
         Escritorio.add(ad);
         Escritorio.moveToFront(ad);
     }//GEN-LAST:event_jBSalirActionPerformed
-//(int dni, String nombre_ape, LocalDate fecha_nac, int celular, int codBrigada)
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser fNacimiento;

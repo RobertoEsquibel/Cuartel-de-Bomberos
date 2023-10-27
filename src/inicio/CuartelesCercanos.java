@@ -44,10 +44,6 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jBSalir = new javax.swing.JButton();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
@@ -133,7 +129,7 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
             jtabla.setValueAt(distancia, i, 6);
         }
 
-        JOptionPane.showMessageDialog(null, "El Cuartel mas cercano es ");
+
     }//GEN-LAST:event_jbuscarActionPerformed
 
     private void jListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jListarActionPerformed
@@ -142,11 +138,11 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jListarActionPerformed
 
     private void jYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jYActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jYActionPerformed
 
     private void jXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jXActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -197,7 +193,6 @@ public class CuartelesCercanos extends javax.swing.JInternalFrame {
             objeto[5] = lista.get(i).getCoord_Y();
 
             modelo.addRow(objeto);
-            // Collections.sort( BuscarCuartel, Comparador.ordenarPorDistancia );
 
         }
 

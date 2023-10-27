@@ -66,13 +66,13 @@ public class BomberoData {
         }
     }
 
-    public void eliminarBombero(int id) {
+    public void eliminarBombero(int id_bombero) {
 
         try {
             con = Conexion.getConexion();
             String sql = "DELETE FROM bomberos WHERE id_bombero = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, id_bombero);
             ps.executeUpdate();
             ps.close();
 

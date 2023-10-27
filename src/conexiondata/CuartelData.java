@@ -83,13 +83,13 @@ public class CuartelData {
 
     }
 
-    public void eliminarCuartel(int parseInt) {
+    public void eliminarCuartel(int codCuartel) {
 
         try {
             con = Conexion.getConexion();
             String sql = "DELETE FROM cuartel WHERE codCuartel = ? ";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, parseInt);
+            ps.setInt(1, codCuartel);
             ps.executeUpdate();
             ps.close();
 

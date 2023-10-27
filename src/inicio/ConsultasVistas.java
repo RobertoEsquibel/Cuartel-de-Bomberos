@@ -43,10 +43,6 @@ public class ConsultasVistas extends javax.swing.JInternalFrame {
         jNro_cuartel = new javax.swing.JTextField();
         jBSalir = new javax.swing.JButton();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N

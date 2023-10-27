@@ -1,7 +1,7 @@
 package conexiondata;
 
 import entidades.Brigada;
-import inicio.brigada;
+import inicio.BrigadaVistas;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
