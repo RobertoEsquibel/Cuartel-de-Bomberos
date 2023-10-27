@@ -7,6 +7,8 @@ package inicio;
 
 import conexiondata.CuartelData;
 import entidades.Cuartel;
+import static inicio.login.Escritorio;
+import static inicio.login.Escritorio;
 
 /**
  *
@@ -48,6 +50,7 @@ public class CuartelVista extends javax.swing.JInternalFrame {
         agregar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -93,7 +96,7 @@ public class CuartelVista extends javax.swing.JInternalFrame {
                 agregarActionPerformed(evt);
             }
         });
-        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         eliminar.setText("ELIMINAR");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +104,7 @@ public class CuartelVista extends javax.swing.JInternalFrame {
                 eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
         modificar.setText("MODIFICAR");
         modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,49 +112,68 @@ public class CuartelVista extends javax.swing.JInternalFrame {
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-       CuartelData c = new CuartelData();
+        CuartelData c = new CuartelData();
         c.eliminarCuartel(Integer.parseInt(jcodigo.getText()));
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-         
+
         int codCuartel = Integer.parseInt(jcodigo.getText());
         int coord_X = Integer.parseInt(jX.getText());
         int coord_Y = Integer.parseInt(jY.getText());
         int telefono = Integer.parseInt(jtelefono.getText());
-       
-        
-       Cuartel c = new Cuartel( codCuartel, jnombre.getText(),jdireccion.getText(),coord_X, coord_Y,telefono,jtelefono.getText());
+
+        Cuartel c = new Cuartel(codCuartel, jnombre.getText(), jdireccion.getText(), coord_X, coord_Y, telefono, jtelefono.getText());
         CuartelData cd = new CuartelData();
         cd.modificarCuartel(c);
-        
+
     }//GEN-LAST:event_modificarActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-       
-          int codCuartel = Integer.parseInt(jcodigo.getText());
+
+        int codCuartel = Integer.parseInt(jcodigo.getText());
         int coord_X = Integer.parseInt(jX.getText());
         int coord_Y = Integer.parseInt(jY.getText());
         int telefono = Integer.parseInt(jtelefono.getText());
 
         //System.out.println(fecha);
-        Cuartel c = new Cuartel(codCuartel, jnombre.getText(),jdireccion.getText(),coord_X, coord_Y, telefono, jcorreo.getText() );
+        Cuartel c = new Cuartel(codCuartel, jnombre.getText(), jdireccion.getText(), coord_X, coord_Y, telefono, jcorreo.getText());
         CuartelData cd = new CuartelData();
         cd.guadarCuartel(c);
-        
-        
+
+
     }//GEN-LAST:event_agregarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        Escritorio.add(ad);
+        Escritorio.moveToFront(ad);
+
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
     private javax.swing.JButton eliminar;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

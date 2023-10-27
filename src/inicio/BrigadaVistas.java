@@ -7,6 +7,7 @@ package inicio;
 
 import conexiondata.BrigadaData;
 import entidades.Brigada;
+import static inicio.login.Escritorio;
 
 /**
  *
@@ -44,6 +45,7 @@ public class BrigadaVistas extends javax.swing.JInternalFrame {
         agregar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -99,40 +101,58 @@ public class BrigadaVistas extends javax.swing.JInternalFrame {
         });
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
 
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-         int codBrigada = Integer.parseInt(jcodigo.getText());
-          boolean libre = estado.isSelected();
+        int codBrigada = Integer.parseInt(jcodigo.getText());
+        boolean libre = estado.isSelected();
         int nro_cuartel = Integer.parseInt(jnumero.getText());
-        
-        Brigada br = new Brigada(codBrigada, jnombre.getText(), jespecialidad.getText(),libre,  nro_cuartel);
+
+        Brigada br = new Brigada(codBrigada, jnombre.getText(), jespecialidad.getText(), libre, nro_cuartel);
         BrigadaData bd = new BrigadaData();
         bd.guadarBrigada(br);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         int codBrigada = Integer.parseInt(jcodigo.getText());
-          boolean libre = estado.isSelected();
+        boolean libre = estado.isSelected();
         int nro_cuartel = Integer.parseInt(jnumero.getText());
-        
-        Brigada br = new Brigada(codBrigada, jnombre.getText(), jespecialidad.getText(),libre,  nro_cuartel);
+
+        Brigada br = new Brigada(codBrigada, jnombre.getText(), jespecialidad.getText(), libre, nro_cuartel);
         BrigadaData bd = new BrigadaData();
         bd.modificarBrigada(br);
-       
+
     }//GEN-LAST:event_modificarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-         BrigadaData bd = new BrigadaData();
+        BrigadaData bd = new BrigadaData();
         bd.eliminarBrigada(Integer.parseInt(jcodigo.getText()));
     }//GEN-LAST:event_eliminarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        Escritorio.add(ad);
+        Escritorio.moveToFront(ad);
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
     private javax.swing.JButton eliminar;
     private javax.swing.JCheckBox estado;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

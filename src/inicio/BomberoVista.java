@@ -2,6 +2,7 @@ package inicio;
 
 import conexiondata.BomberoData;
 import entidades.Bombero;
+import static inicio.login.Escritorio;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.awt.event.ActionListener;
@@ -36,11 +37,9 @@ public class BomberoVista extends javax.swing.JInternalFrame {
         jmodificar = new javax.swing.JButton();
         jeliminar = new javax.swing.JButton();
         fNacimiento = new com.toedter.calendar.JDateChooser();
+        jBSalir = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -88,7 +87,7 @@ public class BomberoVista extends javax.swing.JInternalFrame {
                 jagregarActionPerformed(evt);
             }
         });
-        getContentPane().add(jagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 282, -1, -1));
+        getContentPane().add(jagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jmodificar.setText("MODIFICAR");
         jmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +95,7 @@ public class BomberoVista extends javax.swing.JInternalFrame {
                 jmodificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 282, -1, -1));
+        getContentPane().add(jmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         jeliminar.setText("ELIMINAR");
         jeliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +103,16 @@ public class BomberoVista extends javax.swing.JInternalFrame {
                 jeliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 282, -1, -1));
+        getContentPane().add(jeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
         getContentPane().add(fNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
+
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,10 +153,20 @@ public class BomberoVista extends javax.swing.JInternalFrame {
     private void jtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtcodigoActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        Admin ad = new Admin();
+        ad.setVisible(true);
+        Escritorio.add(ad);
+        Escritorio.moveToFront(ad);
+    }//GEN-LAST:event_jBSalirActionPerformed
 //(int dni, String nombre_ape, LocalDate fecha_nac, int celular, int codBrigada)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser fNacimiento;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
